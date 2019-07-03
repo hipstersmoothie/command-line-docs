@@ -2,6 +2,7 @@ import { Command, MultiCommand } from 'command-line-application';
 
 interface Options {
   depth?: number;
+  includeGlobalOptionsForSubCommands?: boolean;
 }
 
 function H(depth: number) {
@@ -45,7 +46,7 @@ function buildExamples(command: Command) {
     .join('\n\n')}`;
 }
 
-function createDocsForMultiCommand(
+function createDocsForCommand(
   command: Command | MultiCommand,
   options: Required<Options>
 ) {
@@ -69,19 +70,27 @@ function createDocsForMultiCommand(
   }
 
   if ('commands' in command) {
+    const globalOptions = command.options || [];
     command.commands.map(c => {
-      output += createDocsForMultiCommand(c, {
-        ...options,
-        depth: options.depth + 1,
-      });
+      const commandOptions = c.options || [];
+      output += createDocsForCommand(
+        options.includeGlobalOptionsForSubCommands
+          ? { ...c, options: [...globalOptions, ...commandOptions] }
+          : c,
+        {
+          ...options,
+          depth: options.depth + 1,
+        }
+      );
     });
   }
 
   return output;
 }
 
-const defaultOptions = {
+const defaultOptions: Options = {
   depth: 0,
+  includeGlobalOptionsForSubCommands: false,
 };
 
 function commandLineDocs(
@@ -93,7 +102,7 @@ function commandLineDocs(
     ...userOptions,
   };
 
-  return createDocsForMultiCommand(params, options);
+  return createDocsForCommand(params, options as Required<Options>);
 }
 
 export default commandLineDocs;
