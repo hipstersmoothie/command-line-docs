@@ -16,6 +16,38 @@ My scripts package
 | - | - | - |
 | \`--verbose\`, \`-v\` | Boolean | Log a bunch of stuff |
 
+## \`lint\`
+
+lint the project
+
+### Options
+
+| Flag | Type | Description |
+| - | - | - |
+| \`--fix\` | Boolean | Run the application in fix mode |
+
+### Examples
+
+\`\`\`sh
+lint --fix
+\`\`\`
+
+## \`test\`
+
+test the project
+
+### Options
+
+| Flag | Type | Description |
+| - | - | - |
+| \`--interactive\` | Boolean | Run the application in interactive mode |
+
+### Examples
+
+\`\`\`sh
+test --interactive
+\`\`\`
+
 "
 `;
 
