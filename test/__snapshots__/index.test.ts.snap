@@ -19,7 +19,7 @@ My scripts package
 "
 `;
 
-exports[`single command app 1`] = `
+exports[`single command app basic 1`] = `
 "# \`echo\`
 
 Print a string to the terminal
@@ -29,6 +29,30 @@ Print a string to the terminal
 | Flag | Type | Description |
 | - | - | - |
 | \`--value\` | String | The value to print |
+
+"
+`;
+
+exports[`single command app with examples 1`] = `
+"# \`echo\`
+
+Print a string to the terminal
+
+## Options
+
+| Flag | Type | Description |
+| - | - | - |
+| \`--value\` | String | The value to print |
+
+## Examples
+
+\`\`\`sh
+echo foo
+\`\`\`
+
+\`\`\`sh
+echo \\"Intense message\\"
+\`\`\`
 
 "
 `;

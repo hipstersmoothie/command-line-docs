@@ -29,10 +29,27 @@ function buildOptions(command: Command | MultiCommand) {
     .join('\n')}`;
 }
 
+function buildExamples(command: Command) {
+  if (!command.examples) {
+    return;
+  }
+
+  return `${command.examples
+    .map(example => {
+      if (typeof example === 'string') {
+        return `\`\`\`sh\n${example}\n\`\`\``;
+      }
+
+      return `${example.desc}\n\n \`\`\`sh\n${example}\`\`\``;
+    })
+    .join('\n\n')}`;
+}
+
 function createDocsForMultiCommand(
   command: Command | MultiCommand,
-  { depth }: Required<Options>
+  options: Required<Options>
 ) {
+  const { depth } = options;
   let output = `${H(1 + depth)} \`${command.name}\`\n\n${
     command.description
   }\n\n`;
@@ -45,6 +62,10 @@ function createDocsForMultiCommand(
 
   if (command.options) {
     output += `${H(2 + depth)} Options\n\n${buildOptions(command)}\n\n`;
+  }
+
+  if ('examples' in command) {
+    output += `${H(2 + depth)} Examples\n\n${buildExamples(command)}\n\n`;
   }
 
   return output;

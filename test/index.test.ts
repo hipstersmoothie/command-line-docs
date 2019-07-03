@@ -2,22 +2,41 @@ import { Command, MultiCommand } from 'command-line-application';
 
 import commandLineDocs from '../src';
 
-test('single command app', () => {
-  const echo: Command = {
-    name: 'echo',
-    description: 'Print a string to the terminal',
-    examples: ['echo foo', 'echo "Intense message"'],
-    options: [
-      {
-        name: 'value',
-        type: String,
-        defaultOption: true,
-        description: 'The value to print',
-      },
-    ],
-  };
+describe('single command app', () => {
+  test('basic', () => {
+    const echo: Command = {
+      name: 'echo',
+      description: 'Print a string to the terminal',
+      options: [
+        {
+          name: 'value',
+          type: String,
+          defaultOption: true,
+          description: 'The value to print',
+        },
+      ],
+    };
 
-  expect(commandLineDocs(echo)).toMatchSnapshot();
+    expect(commandLineDocs(echo)).toMatchSnapshot();
+  });
+
+  test('with examples', () => {
+    const echo: Command = {
+      name: 'echo',
+      description: 'Print a string to the terminal',
+      examples: ['echo foo', 'echo "Intense message"'],
+      options: [
+        {
+          name: 'value',
+          type: String,
+          defaultOption: true,
+          description: 'The value to print',
+        },
+      ],
+    };
+
+    expect(commandLineDocs(echo)).toMatchSnapshot();
+  });
 });
 
 test('MultiCommand', () => {
