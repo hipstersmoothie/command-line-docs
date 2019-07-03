@@ -2,6 +2,8 @@
   "name": "command-line-docs",
   "version": "0.0.0",
   "main": "dist/index.js",
+  "author": "Andrew Lisowski <lisowski54@gmail.com>",
+  "repository": "hipstersmoothie/command-line-docs",
   "module": "dist/command-line-docs.esm.js",
   "typings": "dist/index.d.ts",
   "files": [
