@@ -1,6 +1,6 @@
 {
   "name": "command-line-docs",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "main": "dist/index.js",
   "author": "Andrew Lisowski <lisowski54@gmail.com>",
   "repository": "hipstersmoothie/command-line-docs",
