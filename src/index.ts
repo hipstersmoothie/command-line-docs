@@ -40,7 +40,7 @@ function buildExamples(command: Command) {
         return `\`\`\`sh\n${example}\n\`\`\``;
       }
 
-      return `${example.desc}\n\n \`\`\`sh\n${example}\`\`\``;
+      return `${example.desc}\n\n \`\`\`sh\n${example.example}\n\`\`\``;
     })
     .join('\n\n')}`;
 }
@@ -66,6 +66,15 @@ function createDocsForMultiCommand(
 
   if ('examples' in command) {
     output += `${H(2 + depth)} Examples\n\n${buildExamples(command)}\n\n`;
+  }
+
+  if ('commands' in command) {
+    command.commands.map(c => {
+      output += createDocsForMultiCommand(c, {
+        ...options,
+        depth: options.depth + 1,
+      });
+    });
   }
 
   return output;
