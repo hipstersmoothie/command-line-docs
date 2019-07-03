@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MultiCommand 1`] = `
+"# \`scripts\`
+
+My scripts package
+
+## Commands
+
+  - **lint** - lint the project
+  - **test** - test the project
+
+## Options
+
+| Flag | Type | Description |
+| - | - | - |
+| \`--verbose\`, \`-v\` | Boolean | Log a bunch of stuff |
+
+"
+`;
+
+exports[`single command app 1`] = `
+"# \`echo\`
+
+Print a string to the terminal
+
+## Options
+
+| Flag | Type | Description |
+| - | - | - |
+| \`--value\` | String | The value to print |
+
+"
+`;
