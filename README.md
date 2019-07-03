@@ -1,27 +1,68 @@
-# TSDX Bootstrap
+# command-line-docs
 
-This project was bootstrapped with [TSDX](https://github.com/jaredpalmer/tsdx).
+Generate markdown documentation based on your [command-line-application](https://github.com/hipstersmoothie/command-line-application) command definitions
 
-## Local Development
+## Installation
 
-Below is a list of commands you will probably find useful.
+```sh
+npm i -D command-line-docs
+# or
+yarn add -D command-line-docs
+```
 
-### `npm start` or `yarn start`
+## Usage
 
-Runs the project in development/watch mode. Your project will be rebuilt upon changes. TSDX has a special logger for you convenience. Error messages are pretty printed and formatted for compatibility VS Code's Problems tab.
+This package support both the `Command` and `MultiCommand` from [command-line-application](https://github.com/hipstersmoothie/command-line-application).
 
-<img src="https://user-images.githubusercontent.com/4060187/52168303-574d3a00-26f6-11e9-9f3b-71dbec9ebfcb.gif" width="600" />
+```js
+import { Command } from 'command-line-application';
+import docs from 'command-line-docs';
 
-Your library will be rebuilt if you make edits.
+const echo: Command = {
+  name: 'echo',
+  description: 'Print a string to the terminal',
+  options: [
+    {
+      name: 'value',
+      type: String,
+      defaultOption: true,
+      description: 'The value to print',
+    },
+  ],
+};
 
-### `npm run build` or `yarn build`
+console.log(docs(echo));
+```
 
-Bundles the package to the `dist` folder.
-The package is optimized and bundled with Rollup into multiple formats (CommonJS, UMD, and ES Module).
+This will output:
 
-<img src="https://user-images.githubusercontent.com/4060187/52168322-a98e5b00-26f6-11e9-8cf6-222d716b75ef.gif" width="600" />
+```md
+# `echo`
 
-### `npm test` or `yarn test`
+Print a string to the terminal
 
-Runs the test watcher (Jest) in an interactive mode.
-By default, runs tests related to files changed since the last commit.
+## Options
+
+| Flag        | Type   | Description        |
+| ----------- | ------ | ------------------ |
+| \`--value\` | String | The value to print |
+```
+
+## Options
+
+### Depth
+
+Control the header depth.
+
+```js
+// Now the docs will start with an h2 instead of an h1
+docs(echo, { depth: 1 });
+```
+
+### Including global options with each sub-command
+
+You might want to include the global options in each sub-command's options table. To do this use the `includeGlobalOptionsForSubCommands` option.
+
+```js
+docs(echo, { includeGlobalOptionsForSubCommands: true });
+```
