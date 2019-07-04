@@ -1974,10 +1974,10 @@ combined-stream@^1.0.6, combined-stream@~1.0.6:
   dependencies:
     delayed-stream "~1.0.0"
 
-command-line-application@^0.1.5:
-  version "0.1.5"
-  resolved "https://registry.yarnpkg.com/command-line-application/-/command-line-application-0.1.5.tgz#3a946b9db58b53b2c2893b2dc695d097f4c12d45"
-  integrity sha512-E/AWJCJAPC6Zy+XMzqAfQDaDd+zemN2LoeOvTwq695jqP0L5lH7hWhvFouO/7nF3t9F1kJWhiOb19OGnYLSC1w==
+command-line-application@^0.1.7:
+  version "0.1.7"
+  resolved "https://registry.npmjs.intuit.com:443/artifactory/api/npm/npm-intuit/command-line-application/-/command-line-application-0.1.7.tgz#b7926d9a76210bd376c61f1eb720f58e6c88d41c"
+  integrity sha1-t5JtmnYhC9N2xh8etyD1jmyI1Bw=
   dependencies:
     "@types/command-line-args" "^5.0.0"
     "@types/command-line-usage" "^5.0.1"

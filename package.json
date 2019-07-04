@@ -38,7 +38,7 @@
     "typescript": "^3.5.2"
   },
   "dependencies": {
-    "command-line-application": "^0.1.5",
+    "command-line-application": "^0.1.7",
     "dedent": "^0.7.0"
   },
   "auto": {

@@ -1,4 +1,4 @@
-import { Command, MultiCommand } from 'command-line-application';
+import { Command, MultiCommand, Option } from 'command-line-application';
 
 interface Options {
   depth?: number;
@@ -11,12 +11,8 @@ function H(depth: number) {
     .join('');
 }
 
-function buildOptions(command: Command | MultiCommand) {
-  if (!command.options) {
-    return;
-  }
-
-  return `| Flag | Type | Description |\n| - | - | - |\n${command.options
+function buildOptions(options: Option[]) {
+  return `| Flag | Type | Description |\n| - | - | - |\n${options
     .map(option => {
       const ways = [`\`--${option.name}\``];
 
@@ -24,8 +20,11 @@ function buildOptions(command: Command | MultiCommand) {
         ways.push(`\`-${option.alias}\``);
       }
 
-      return `| ${ways.join(', ')} | ${option.typeLabel ||
-        option.type.name} | ${option.description} |`;
+      return `| ${ways.join(', ')} | ${
+        option.typeLabel
+          ? option.typeLabel.replace(/\|/g, '\\|')
+          : option.type.name
+      } | ${option.description} |`;
     })
     .join('\n')}`;
 }
@@ -62,7 +61,7 @@ function createDocsForCommand(
   }
 
   if (command.options) {
-    output += `${H(2 + depth)} Options\n\n${buildOptions(command)}\n\n`;
+    output += `${H(2 + depth)} Options\n\n${buildOptions(command.options)}\n\n`;
   }
 
   if ('examples' in command) {
@@ -83,6 +82,25 @@ function createDocsForCommand(
         }
       );
     });
+  }
+
+  if ('footer' in command) {
+    if (typeof command.footer === 'string') {
+      output += command.footer;
+    } else {
+      const sections = Array.isArray(command.footer)
+        ? command.footer
+        : [command.footer];
+
+      sections.forEach(section => {
+        if (section) {
+          output += `${H(2 + depth)} ${section.header}\n\n${('optionList' in
+            section &&
+            buildOptions(section.optionList as Option[])) ||
+            ('content' in section && section.content)}\n\n`;
+        }
+      });
+    }
   }
 
   return output;
