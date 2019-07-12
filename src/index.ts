@@ -94,8 +94,11 @@ function createDocsForCommand(
 
       sections.forEach(section => {
         if (section) {
-          output += `${H(2 + depth)} ${section.header}\n\n${('optionList' in
-            section &&
+          if (section.header) {
+            output += `${H(2 + depth)} ${section.header}\n\n`;
+          }
+
+          output += `${('optionList' in section &&
             buildOptions(section.optionList as Option[])) ||
             ('content' in section && section.content)}\n\n`;
         }
