@@ -1,3 +1,15 @@
+# v0.0.3 (Fri Jul 12 2019)
+
+#### ⚠️  Pushed to master
+
+- only put header if one exists  ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+#### Authors: 1
+
+- Andrew Lisowski ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+---
+
 # v0.0.2 (Thu Jul 04 2019)
 
 #### ⚠️  Pushed to master
