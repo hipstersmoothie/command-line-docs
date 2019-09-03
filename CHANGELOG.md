@@ -1,3 +1,15 @@
+# v0.0.4 (Tue Sep 03 2019)
+
+#### 🐛  Bug Fix
+
+- Configure Renovate [#1](https://github.com/hipstersmoothie/command-line-docs/pull/1) ([@renovate-bot](https://github.com/renovate-bot))
+
+#### Authors: 1
+
+- Renovate Bot ([@renovate-bot](https://github.com/renovate-bot))
+
+---
+
 # v0.0.3 (Fri Jul 12 2019)
 
 #### ⚠️  Pushed to master
