@@ -1984,15 +1984,17 @@ combined-stream@^1.0.6, combined-stream@~1.0.6:
   dependencies:
     delayed-stream "~1.0.0"
 
-command-line-application@^0.1.8:
-  version "0.1.8"
-  resolved "https://registry.yarnpkg.com/command-line-application/-/command-line-application-0.1.8.tgz#0dc1308d2139fb8b876386d2ff48db178fdf18e9"
-  integrity sha512-BlvTeQKu4eO6ayuxJhh2COg2I88laYExyipt7CIlaWSXnFWooNg3P3g+afFZNs0aTEahxwcWJf3KSzma8qCu9g==
+command-line-application@^0.8.0:
+  version "0.8.0"
+  resolved "https://registry.yarnpkg.com/command-line-application/-/command-line-application-0.8.0.tgz#1491f1ca1f6c2dc158093b48f0545197f62c25a6"
+  integrity sha512-nU/IzwfJqisqwshuOiMiFo0PkujITiXMjYrNgaNHlLgSMDDMKVnjhXh2M2/nfIP/l/YZ2sr0AGIfLtSN5VJgGg==
   dependencies:
     "@types/command-line-args" "^5.0.0"
     "@types/command-line-usage" "^5.0.1"
+    chalk "^2.4.1"
     command-line-args "^5.1.1"
     command-line-usage "^5.0.5"
+    meant "^1.0.1"
     remove-markdown "^0.3.0"
 
 command-line-args@^5.1.1:
@@ -4293,6 +4295,11 @@ md5.js@^1.3.4:
     hash-base "^3.0.0"
     inherits "^2.0.1"
     safe-buffer "^5.1.2"
+
+meant@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/meant/-/meant-1.0.1.tgz#66044fea2f23230ec806fb515efea29c44d2115d"
+  integrity sha512-UakVLFjKkbbUwNWJ2frVLnnAtbb7D7DsloxRd3s/gDpI8rdv8W5Hp3NaDb+POBI1fQdeussER6NB8vpcRURvlg==
 
 mem@^4.0.0:
   version "4.3.0"
