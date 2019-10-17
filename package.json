@@ -5,6 +5,7 @@
   "author": "Andrew Lisowski <lisowski54@gmail.com>",
   "repository": "hipstersmoothie/command-line-docs",
   "module": "dist/command-line-docs.esm.js",
+  "license": "MIT",
   "typings": "dist/index.d.ts",
   "files": [
     "dist"
