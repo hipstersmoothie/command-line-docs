@@ -40,7 +40,7 @@
     "typescript": "3.6.3"
   },
   "dependencies": {
-    "command-line-application": "^0.8.0",
+    "command-line-application": "^0.10.0",
     "dedent": "^0.7.0"
   },
   "auto": {
